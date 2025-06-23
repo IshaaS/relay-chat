@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from "react";
+import toast from 'react-hot-toast';
 import { useAuthStore } from "../store/useAuthStore";
 import { Camera, Mail, User } from "lucide-react";
 
@@ -9,14 +10,19 @@ const ProfilePage = () => {
   const [about, setAbout] = useState(authUser?.about || "");
   const [initialAbout, setInitialAbout] = useState(authUser?.about || "");
 
-
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    const reader = new FileReader();
+    let imageFile = file;
 
-    reader.readAsDataURL(file);
+  if (file.type === "image/heic" || file.name.toLowerCase().endsWith(".heic")) {
+    toast.error(".heic images are not supported");
+    return;
+  }
 
+  const reader = new FileReader();
+
+  reader.readAsDataURL(imageFile);
     reader.onload = async () => {
       const base64Image = reader.result;
       setSelectedImg(base64Image);
@@ -30,7 +36,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="h-screen pt-20">
+    <div className="pt-20">
       <div className="max-w-2xl mx-auto p-4 py-8">
         <div className="bg-base-300 rounded-xl p-6 space-y-8">
           <div className="text-center">
