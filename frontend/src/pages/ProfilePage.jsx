@@ -146,7 +146,9 @@ const ProfilePage = () => {
             <div className="space-y-3 text-sm">
               <div className="flex items-center justify-between py-2 border-t border-zinc-700">
                 <span>Member Since</span>
-                <span>{authUser.createdAt?.split("T")[0]}</span>
+                {console.log("*****")}
+                {console.log(authUser? authUser:"")}
+                <span>{authUser?.createdAt?.split("T")[0]}</span>
               </div>
               {/* <div className="flex items-center justify-between py-2">
                 <span>Account Status</span>
