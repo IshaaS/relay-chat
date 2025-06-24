@@ -74,7 +74,7 @@ const ChatNewMessage = () => {
           <input
             type="text"
             className="w-full input input-bordered rounded-lg input-sm sm:input-md"
-            placeholder="Type a message..."
+            placeholder="Start typing your message..."
             value={text}
             onChange={(e) => setText(e.target.value)}
           />

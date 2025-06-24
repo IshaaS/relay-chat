@@ -12,20 +12,21 @@ const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
 
   return (
-    <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
-      <div className="space-y-6">
+    <div className="min-h-screen container mx-auto px-4 pt-16 ">
+      <div className="min-h-screen grid lg:grid-cols-2 gap-20">
+        <div>
         <div className="flex flex-col gap-1">
-          <h2 className="text-lg font-semibold">Theme</h2>
-          <p className="text-sm text-base-content/70">Choose a theme for your chat interface</p>
+          <h2 className="text-lg mt-2 text-center font-semibold">Choose Your Theme</h2>
+          <p className="mt-2 text-sm  text-center text-base-content/70">Customize the look and feel of Relay to match your style.</p>
         </div>
 
-        <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
+        <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
           {THEMES.map((t) => (
             <button
               key={t}
               className={`
                 group flex flex-col items-center gap-1.5 p-2 rounded-lg transition-colors
-                ${theme === t ? "bg-base-200" : "hover:bg-base-200/50"}
+                ${theme === t ? "bg-base-200 ring-2 ring-primary" : "hover:bg-base-200/50"}
               `}
               onClick={() => setTheme(t)}
             >
@@ -43,20 +44,21 @@ const SettingsPage = () => {
             </button>
           ))}
         </div>
-
+          </div>
+          <div>
         {/* Preview Section */}
-        <h3 className="text-lg font-semibold mb-3">Preview</h3>
-        <div className="rounded-xl border border-base-300 overflow-hidden bg-base-100 shadow-lg">
+        <h3 className="text-lg font-semibold mb-3 mt-2 text-center">Theme Preview</h3>
+        <div className=" rounded-xl border border-base-300 overflow-hidden bg-base-100 shadow-lg">
           <div className="p-4 bg-base-200">
             <div className="max-w-lg mx-auto">
               <div className="bg-base-100 rounded-xl shadow-sm overflow-hidden">
                 <div className="px-4 py-3 border-b border-base-300 bg-base-100">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-content font-medium">
-                      S
+                      A
                     </div>
                     <div>
-                      <h3 className="font-medium text-sm">Shruti Bhutada</h3>
+                      <h3 className="font-medium text-sm">Alex</h3>
                       <p className="text-xs text-base-content/70">Online</p>
                     </div>
                   </div>
@@ -93,8 +95,8 @@ const SettingsPage = () => {
                     <input
                       type="text"
                       className="input input-bordered flex-1 text-sm h-10"
-                      placeholder="Type a message..."
-                      value="This is a preview"
+                      placeholder="Type your message..."
+                      value="Preview"
                       readOnly
                     />
                     <button className="btn btn-primary h-10 min-h-0">
@@ -106,6 +108,8 @@ const SettingsPage = () => {
             </div>
           </div>
         </div>
+        </div>
+      
       </div>
     </div>
   );

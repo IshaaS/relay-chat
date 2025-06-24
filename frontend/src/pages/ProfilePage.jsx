@@ -36,22 +36,20 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="h-screen pt-20">
       <div className="max-w-2xl mx-auto p-4 py-8">
         <div className="bg-base-300 rounded-xl p-6 space-y-8">
-          <div className="text-center">
-            <h1 className="text-2xl font-semibold ">Profile</h1>
-            <p className="mt-2">Your profile information</p>
+          <div className="text-center mb-5">
+            <h1 className="text-2xl font-semibold ">Account</h1>
+            {/* <p className="mt-2">Your profile information</p> */}
           </div>
 
-          {/* avatar upload section */}
-
-          <div className="flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center mb-3 gap-4">
             <div className="relative">
               <img
                 src={selectedImg || authUser.profilePic || "/avatar.png"}
                 alt="Profile"
-                className="size-32 rounded-full object-cover border-4 "
+                className="size-42 rounded-full object-cover border-4 "
               />
               <label
                 htmlFor="avatar-upload"
@@ -75,28 +73,48 @@ const ProfilePage = () => {
               </label>
             </div>
             <p className="text-sm text-zinc-400">
-              {isUpdatingProfile ? "Uploading..." : "Click the camera icon to update your photo"}
+              {isUpdatingProfile ? "Uploading..." : 
+                <label
+                htmlFor="avatar-upload"
+                className={`
+                  hover:scale-105
+                  p-2 cursor-pointer 
+                  transition-all duration-200
+                  ${isUpdatingProfile ? "animate-pulse pointer-events-none" : ""}
+                `}
+              >
+                {"Edit Photo"}
+                <input
+                  type="file"
+                  id="avatar-upload1"
+                  className="hidden"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  disabled={isUpdatingProfile}
+                />
+                 </label>
+              }
             </p>
           </div>
 
-          <div className="space-y-6">
-            <div className="space-y-1.5">
+          <div className="space-y-6 mb-5">
+            <div className="space-y-1.5 mb-3">
               <div className="text-sm text-zinc-400 flex items-center gap-2">
                 <User className="w-4 h-4" />
                 Full Name
               </div>
-              <p className="px-4 py-2.5 bg-base-200 rounded-lg border">{authUser?.fullname}</p>
+              <p className="px-4 py-2.5 bg-base-200 rounded-lg border cursor-not-allowed">{authUser?.fullname}</p>
             </div>
 
-            <div className="space-y-1.5">
-              <div className="text-sm text-zinc-400 flex items-center gap-2">
+            <div className="space-y-1.5 mb-3">
+              <div className="text-sm text-zinc-400 flex items-center  gap-2">
                 <Mail className="w-4 h-4" />
                 Email Address
               </div>
-              <p className="px-4 py-2.5 bg-base-200 rounded-lg border">{authUser?.email}</p>
+              <p className="px-4 py-2.5 bg-base-200 rounded-lg cursor-not-allowed border">{authUser?.email}</p>
             </div>
 
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 mb-1">
               <div className="text-sm text-zinc-400 flex items-center gap-2">
                 <User className="w-4 h-4" />
                 About
@@ -123,17 +141,17 @@ const ProfilePage = () => {
             </button>
           </div>
 
-          <div className="mt-6 bg-base-300 rounded-xl p-6">
-            <h2 className="text-lg font-medium  mb-4">Account Information</h2>
+          <div className="mt-2 bg-base-300 rounded-xl">
+            {/* <h2 className="text-lg font-medium  mb-4">Account Information</h2> */}
             <div className="space-y-3 text-sm">
-              <div className="flex items-center justify-between py-2 border-b border-zinc-700">
+              <div className="flex items-center justify-between py-2 border-t border-zinc-700">
                 <span>Member Since</span>
                 <span>{authUser.createdAt?.split("T")[0]}</span>
               </div>
-              <div className="flex items-center justify-between py-2">
+              {/* <div className="flex items-center justify-between py-2">
                 <span>Account Status</span>
                 <span className="text-green-500">Active</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
