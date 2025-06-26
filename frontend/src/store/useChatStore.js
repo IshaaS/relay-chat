@@ -10,6 +10,7 @@ export const useChatStore = create((set,get)=>({
     selectedUser:null,
     isUsersLoading:false,
     isMessagesLoading:false,
+    isAccountOpen: false,
 
     getUsers: async ()=>{
         set({isUsersLoading:true});
@@ -65,4 +66,5 @@ export const useChatStore = create((set,get)=>({
     setSelectedUser: (selectedUser)=>{
         set({selectedUser});
     },
+    setIsAccountOpen: (isOpen) => set({ isAccountOpen: isOpen }),
 }));

@@ -3,9 +3,10 @@ import { useChatStore } from "../store/useChatStore";
 import Sidebar from "../components/Sidebar";
 import NoChatSelected from "../components/NoChatSelected";
 import ChatContainer from "../components/ChatContainer";
+import ViewAccount from "../components/ViewAccount";
 
 const HomePage = () => {
-  const { selectedUser } = useChatStore();
+  const { selectedUser, isAccountOpen } = useChatStore();
 
   return (
     <div className="h-screen bg-base-200">
@@ -18,6 +19,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      {isAccountOpen && <ViewAccount />}
     </div>
   );
 };
