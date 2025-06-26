@@ -14,7 +14,8 @@ dotenv.config();
 const PORT = process.env.PORT;
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    // origin: "http://localhost:5173",
+    origin: "https://relay-chat.onrender.com",
     credentials:true,
 }
 ))
