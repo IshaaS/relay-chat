@@ -12,6 +12,7 @@ import { connectDB } from "./lib/db.js";
 dotenv.config();
 
 const PORT = process.env.PORT;
+app.set("trust proxy", 1); 
 
 app.use(cors({
     // origin: "http://localhost:5173",
