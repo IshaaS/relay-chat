@@ -1,16 +1,16 @@
-# pingme-chat
-Real Time Chat Application (WIP)
+# Relay: Real Talk. Real Time.
+Real Time Chat Application
 
-# Backend:
-1. node, express
-2. mongodb for the database
-3. cloudinary for storing profile pictures and images sent in texts
-4. bcrypt for hashing passwords.
-5. jwt for access authentication.
-6. 
-# Frontend:
-1. react
-2. tailwindcss
-3. daisyui
-4. react hot toasts
-5. lucide for icons
+# Try it here
+https://relay-chat.onrender.com
+create an account or use existing creds:
+email: isha.sasturkar@gmail.com
+password: isha30
+
+# Tech Stack Used
+MongoDB, Node.js, Express, Cloudinary(for image uploads), React.js, Tailwind CSS, Daisyui, react-hot-toasts, Lucide
+
+
+
+
+
