@@ -1,5 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
+
 export const axiosInstance = axios.create({
-  baseURL: "https://relay-chat-backend-beey.onrender.com/api",
+  baseURL: import.meta.env.MODE === "development" ? "http://localhost:5001/api" : "/api",
   withCredentials: true,
 });
